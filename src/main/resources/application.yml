@@ -1,0 +1,12 @@
+server:
+  port: 18082
+  tomcat:
+    max-threads: 1
+logging:
+  level:
+    my:
+      min:
+        INFO
+    org:
+      springframework:
+        INFO
