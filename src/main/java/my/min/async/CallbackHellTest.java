@@ -16,8 +16,6 @@ import org.springframework.web.client.AsyncRestTemplate;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.request.async.DeferredResult;
 
-import java.util.concurrent.ThreadPoolExecutor;
-
 @RestController
 public class CallbackHellTest {
 

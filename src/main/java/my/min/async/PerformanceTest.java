@@ -15,11 +15,11 @@ public class PerformanceTest {
         ExecutorService es = Executors.newFixedThreadPool(100);
 
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:18082/rest?idx={idx}";
+        String url = "http://localhost:18082/solution/callback/hell2?idx={idx}";
 
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(101);// 스레드 동기화! 101째
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(2);// 스레드 동기화! 101째
 
-        for(int i = 0; i < 100; i++){
+        for(int i = 0; i < 1; i++){
             es.submit(() -> {
                 int idx = counter.addAndGet(1);
 
