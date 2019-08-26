@@ -15,15 +15,16 @@ public class PerformanceTest {
         ExecutorService es = Executors.newFixedThreadPool(100);
 
         RestTemplate restTemplate = new RestTemplate();
-        String url = "http://localhost:18082/solution/callback/hell2?idx={idx}";
+//        String url = "http://localhost:18082/solution/callback/hell2?idx={idx}";
+        String url = "http://localhost:8080/hello/webFlux?idx={idx}";
 
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(2);// 스레드 동기화! 101째
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(100);// 스레드 동기화! 101째
 
-        for(int i = 0; i < 1; i++){
+        for(int i = 0; i < 100; i++){
             es.submit(() -> {
                 int idx = counter.addAndGet(1);
 
-                cyclicBarrier.await();
+                cyclicBarrier.await(); // 100개의 요청을 한번에 보냄
 
                 StopWatch sw = new StopWatch();
                 sw.start();
@@ -39,7 +40,7 @@ public class PerformanceTest {
             });
         }
 
-        cyclicBarrier.await();
+//        cyclicBarrier.await();
 
         StopWatch mainStopwatch = new StopWatch();
         mainStopwatch.start();
