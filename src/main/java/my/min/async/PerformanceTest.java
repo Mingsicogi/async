@@ -16,7 +16,7 @@ public class PerformanceTest {
 
         RestTemplate restTemplate = new RestTemplate();
 //        String url = "http://localhost:18082/solution/callback/hell2?idx={idx}";
-        String url = "http://localhost:8080/hello/webFlux?idx={idx}";
+        String url = "http://localhost/hello/webFlux?idx={idx}";
 
         CyclicBarrier cyclicBarrier = new CyclicBarrier(100);// 스레드 동기화! 101째
 
